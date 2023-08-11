@@ -1,0 +1,35 @@
+.App {
+  // .Header {
+  //   grid-area: header;
+  // }
+
+  .container--dash-grid {
+    display: block;
+
+    @include breakpoint('desktop') {
+      display: grid;
+      grid-template-areas: 'sidebar dashboard';
+      min-height: 100vh;
+      grid-template-rows: auto;
+      grid-template-columns: 300px auto;
+      grid-gap: 2rem 1rem;
+    }
+
+    .Sidebar {
+      grid-area: sidebar;
+      margin-bottom: 1rem;
+
+      @include breakpoint('desktop') {
+        margin-bottom: 0;
+      }
+    }
+
+    .Dashboard {
+      grid-area: dashboard;
+    }
+  }
+
+  // .Footer {
+  //   grid-area: footer;
+  // }
+}

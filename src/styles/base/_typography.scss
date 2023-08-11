@@ -1,0 +1,42 @@
+h1,
+.h1 {
+  font: 700 5rem/1.5 $heading-font;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+h2,
+.h2 {
+  font: 700 4rem/1.5 $heading-font;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+h3,
+.h3 {
+  font: 700 3.5rem/1.5 $heading-font;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+h4,
+.h4 {
+  font: 700 3rem/1.5 $heading-font;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+h5,
+.h5 {
+  font: 900 1.25rem/1.5 $heading-font;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+h6,
+.h6 {
+  font: 700 1rem/1.5 $heading-font;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}

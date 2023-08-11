@@ -1,0 +1,108 @@
+.News {
+  // grid-column: 1/7;
+  grid-column: span 6;
+  // border: 1px solid rgba(255, 255, 255, 0.1);
+  // border-radius: 10px;
+  // padding: 1rem;
+
+  .header-image-wrapper {
+    display: grid;
+    grid-template-areas: 'stack';
+    place-items: center;
+    height: 150px;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .headline {
+      grid-area: stack;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-image {
+      grid-area: stack;
+      height: 150px;
+      // height: 100%;
+      width: 100%;
+      // position: absolute;
+      object-fit: cover;
+      // margin-bottom: 1rem;
+      // border-radius: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      // mask-image: url("data:image/svg+xml,%3C!--%3Fxml version='1.0' standalone='no'%3F--%3E%3Csvg id='sw-js-blob-svg' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3Cdefs%3E%3ClinearGradient id='sw-gradient' x1='0' x2='1' y1='1' y2='0'%3E%3Cstop id='stop1' stop-color='rgba(52, 145, 253, 1)' offset='0%25' data-darkreader-inline-stopcolor='' style='--darkreader-inline-stopcolor: %230251ac;'%3E%3C/stop%3E%3Cstop id='stop2' stop-color='rgba(248, 252, 153, 1)' offset='100%25' data-darkreader-inline-stopcolor='' style='--darkreader-inline-stopcolor: %23515302;'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23sw-gradient)' d='M22.7,-33.9C30.1,-30.6,37.2,-25.4,41,-18.4C44.8,-11.3,45.2,-2.4,44,6.4C42.8,15.1,39.9,23.6,34.4,29.5C28.8,35.4,20.6,38.7,12.8,38.8C5,39,-2.3,35.9,-9.2,33C-16.1,30.2,-22.5,27.7,-28.8,23.3C-35.2,19,-41.3,12.9,-43.8,5.4C-46.3,-2.1,-45,-11,-40.1,-16.9C-35.2,-22.8,-26.7,-25.6,-19.4,-28.9C-12.2,-32.3,-6.1,-36.2,0.8,-37.4C7.7,-38.7,15.4,-37.2,22.7,-33.9Z' width='100%25' height='100%25' transform='translate(50 50)' stroke-width='0' style='transition: all 0.3s ease 0s;'%3E%3C/path%3E%3C/svg%3E");
+      // mask-repeat: no-repeat;
+      // mask-size: contain;
+      // mask-position: center;
+      //   -webkit-mask-repeat: no-repeat;
+      //   -webkit-mask-size: contain;
+      //   -webkit-mask-position: center;
+      //   // -webkit-mask-image: url("data:image/svg+xml,%3C!--%3Fxml version='1.0' standalone='no'%3F--%3E%3Csvg id='sw-js-blob-svg' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3Cdefs%3E%3ClinearGradient id='sw-gradient' x1='0' x2='1' y1='1' y2='0'%3E%3Cstop id='stop1' stop-color='rgba(52, 145, 253, 1)' offset='0%25' data-darkreader-inline-stopcolor='' style='--darkreader-inline-stopcolor: %230251ac;'%3E%3C/stop%3E%3Cstop id='stop2' stop-color='rgba(248, 252, 153, 1)' offset='100%25' data-darkreader-inline-stopcolor='' style='--darkreader-inline-stopcolor: %23515302;'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23sw-gradient)' d='M22.7,-33.9C30.1,-30.6,37.2,-25.4,41,-18.4C44.8,-11.3,45.2,-2.4,44,6.4C42.8,15.1,39.9,23.6,34.4,29.5C28.8,35.4,20.6,38.7,12.8,38.8C5,39,-2.3,35.9,-9.2,33C-16.1,30.2,-22.5,27.7,-28.8,23.3C-35.2,19,-41.3,12.9,-43.8,5.4C-46.3,-2.1,-45,-11,-40.1,-16.9C-35.2,-22.8,-26.7,-25.6,-19.4,-28.9C-12.2,-32.3,-6.1,-36.2,0.8,-37.4C7.7,-38.7,15.4,-37.2,22.7,-33.9Z' width='100%25' height='100%25' transform='translate(50 50)' stroke-width='0' style='transition: all 0.3s ease 0s;'%3E%3C/path%3E%3C/svg%3E");
+      //   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='none' viewBox='0 0 200 200'%3E%3Cpath fill='url(%23paint0_linear_105_435)' d='M0 47.423c0-9.4 6.536-17.517 15.77-19.274C36.483 24.209 73.342 18 100 18s63.517 6.208 84.23 10.149c9.234 1.757 15.77 9.875 15.77 19.274v102.951c0 9.05-6.069 16.959-14.88 19.022-20.437 4.785-57.769 12.538-85.12 12.538-27.351 0-64.683-7.753-85.12-12.538C6.069 167.333 0 159.424 0 150.374V47.424Z'%3E%3C/path%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_105_435' x1='100' x2='100' y1='18' y2='181.934' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23A7B5FF'%3E%3C/stop%3E%3Cstop offset='1' stop-color='%23F3ACFF'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+    }
+  }
+
+  .news-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 0 1rem;
+
+    .news-item {
+      // margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      &:nth-child(1n + 1) {
+        &:before {
+          background: $green;
+        }
+      }
+      &:nth-child(2n + 1) {
+        &:before {
+          background: $yellow;
+        }
+      }
+      &:nth-child(3n + 1) {
+        &:before {
+          background: $blue;
+        }
+      }
+      &:nth-child(4n + 1) {
+        &:before {
+          background: $purple;
+        }
+      }
+
+      &:hover {
+        &:before {
+          transform: scale(1);
+        }
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        transform: scale(0.1, 1);
+        transform-origin: left;
+        transition: all 0.2s;
+      }
+
+      .date {
+        margin-top: auto;
+      }
+    }
+  }
+}
