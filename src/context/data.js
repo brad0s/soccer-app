@@ -160,7 +160,7 @@ export const TOURNAMENTS = [
  * get first item for array for most current season
  *
  */
-export const leagueCurrentSeason = [
+export const LEAGUE_CURRENT_SEASON = [
   {
     tournamentId: 17,
     editor: false,
@@ -220,7 +220,7 @@ export const leagueCurrentSeason = [
  * https://footapi7.p.rapidapi.com/api/tournament/{17}/season/{52186}/standings/total
  * tournament id, season id
  */
-export const leagueStandings = {
+export const LEAGUE_STANDINGS = {
   standings: [
     {
       descriptions: [],
@@ -995,7 +995,7 @@ export const leagueStandings = {
  * https://allsportsapi2.p.rapidapi.com/api/tournament/7/season/36886/statistics
  * get league overall top players
  */
-export const leagueTopPlayers = {
+export const LEAGUE_TOP_PLAYERS = {
   page: 1,
   pages: 75,
   results: [
@@ -1277,7 +1277,7 @@ export const leagueTopPlayers = {
  * https://footapi7.p.rapidapi.com/api/tournament/17/season/52186/matches/next/0
  */
 
-export const leagueNextMatches = {
+export const LEAGUE_NEXT_MATCHES = {
   events: [
     {
       awayScore: {},
@@ -4938,7 +4938,7 @@ export const leagueNextMatches = {
  * geojson data for globe module
  */
 
-export const globalLabelData = {
+export const GLOBAL_LABEL_DATA = {
   type: 'FeatureCollection',
   features: [
     {

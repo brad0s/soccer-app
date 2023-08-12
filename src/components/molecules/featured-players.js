@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { leagueTopPlayers } from '../../context/data'
+import { LEAGUE_TOP_PLAYERS } from '../../context/data'
 
 function FeaturedPlayers() {
   const [featuredPlayers, setFeaturedPlayers] = useState([])
 
   useEffect(() => {
-    const results = leagueTopPlayers.results.slice(0, 3)
+    const results = LEAGUE_TOP_PLAYERS.results.slice(0, 3)
     setFeaturedPlayers(results)
   }, [])
 

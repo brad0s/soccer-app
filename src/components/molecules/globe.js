@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Globe from 'react-globe.gl'
-import { globalLabelData } from '../../context/data'
+import { GLOBAL_LABEL_DATA } from '../../context/data'
 import HEX_DATA from '../../context/countries-v2.geojson'
 import globeImageNight from '../../assets/images/earth-night-v2.webp'
 
@@ -11,7 +11,7 @@ const GlobeComponent = () => {
 
   useEffect(() => {
     setHexData(HEX_DATA)
-    setLabelData(globalLabelData)
+    setLabelData(GLOBAL_LABEL_DATA)
   }, [])
 
   useEffect(() => {

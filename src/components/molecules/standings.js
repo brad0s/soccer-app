@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { leagueStandings } from '../../context/data'
+import { LEAGUE_STANDINGS } from '../../context/data'
 import Error from './error'
 
 function Standings() {
   const [standings, setStandings] = useState({ rows: [] })
 
   useEffect(() => {
-    setStandings(() => leagueStandings.standings[0])
+    setStandings(() => LEAGUE_STANDINGS.standings[0])
   }, [])
 
   return (
