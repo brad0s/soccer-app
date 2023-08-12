@@ -2,7 +2,6 @@ import axios from 'axios'
 import XMLParser from 'react-xml-parser'
 
 const rssFeedInstance = axios.create({
-  // baseURL: 'https://feeds.bbci.co.uk/sport/football/rss.xml',
   baseURL: 'https://www.espn.com/espn/rss/soccer/news',
 })
 

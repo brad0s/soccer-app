@@ -1,20 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { leagueStandings } from '../../context/data'
+import Error from './error'
 
 function Standings() {
+  const [standings, setStandings] = useState({ rows: [] })
+
+  useEffect(() => {
+    setStandings(() => leagueStandings.standings[0])
+  }, [])
+
   return (
     <div className="Standings">
       <h2 className="h5">Standings</h2>
       <div className="grid-table">
         <TeamStandingRowHeader />
-        {leagueStandings.standings[0].rows.map((row, idx) => {
-          return (
-            <TeamStandingRow
-              key={idx}
-              row={row}
-            />
-          )
-        })}
+        {standings?.rows?.length > 0 ? (
+          standings.rows.map((row, idx) => {
+            return (
+              <TeamStandingRow
+                key={idx}
+                row={row}
+              />
+            )
+          })
+        ) : (
+          <Error />
+        )}
       </div>
     </div>
   )

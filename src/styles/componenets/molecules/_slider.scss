@@ -3,6 +3,10 @@
   overflow: hidden;
   grid-column: 1/-1;
 
+  swiper-container {
+    --swiper-theme-color: white;
+  }
+
   swiper-slide {
     width: 100% !important;
 

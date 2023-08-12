@@ -9,7 +9,7 @@ import { playerSlider } from '../../context/cms'
 // dynamic image import
 function importAll(r) {
   let images = {}
-  r.keys().map((item, index) => {
+  r.keys().map((item) => {
     images[item.replace('./', '')] = r(item)
   })
   return images
@@ -20,7 +20,13 @@ const images = importAll(
 function Slider() {
   return (
     <div className="Slider">
-      <swiper-container>
+      <swiper-container
+        pagination="true"
+        pagination-clickable="true"
+        autoPlay="true"
+        autoPlay-delay={7000}
+        loop="true"
+      >
         {playerSlider.map((slide, idx) => (
           <swiper-slide
             key={idx}

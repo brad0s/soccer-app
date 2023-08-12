@@ -3,7 +3,6 @@ import moment from 'moment'
 import Error from './error'
 import { getRssFeed } from '../../context/api'
 import headerImage from '../../assets/images/soccer-match.webp'
-// import headerImage from '../../assets/images/messi-listen.webp'
 
 function News() {
   const [news, setNews] = useState(null)
@@ -48,7 +47,6 @@ function News() {
                     {title}
                   </a>
                 </h3>
-                {/* <p className="subhead">{description}</p> */}
                 <p
                   className="date"
                   data-date={pubDate}
@@ -57,7 +55,6 @@ function News() {
                 </p>
               </div>
             )
-            // }
           })}
         </div>
       ) : (

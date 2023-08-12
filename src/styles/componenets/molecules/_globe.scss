@@ -1,9 +1,7 @@
 .Globe {
-  // grid-column: 1/7;
   grid-column: span 6;
 
   .scene-container {
-    // padding-top: calc((9 / 16) * 100%);
     padding-top: 85%;
     height: 0 !important;
     width: 100% !important;
