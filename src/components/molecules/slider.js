@@ -1,9 +1,9 @@
 import React from 'react'
 // import function to register Swiper custom elements
-import { register } from 'swiper/element/bundle'
+// import { register } from 'swiper/element/bundle'
 import '../../assets/images/haaland-header-crop.png'
 // register Swiper custom elements
-register()
+// register()
 import { playerSlider } from '../../context/cms'
 
 // dynamic image import
@@ -26,6 +26,7 @@ function Slider() {
         autoPlay="true"
         autoPlay-delay={7000}
         loop="true"
+        mousewheel={true}
       >
         {playerSlider.map((slide, idx) => (
           <swiper-slide
