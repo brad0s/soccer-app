@@ -4,15 +4,17 @@ import Standings from './molecules/standings'
 import News from './molecules/news'
 import FeaturedPlayers from './molecules/featured-players'
 import GlobeComponent from './molecules/globe'
+import WeekMatches from './molecules/weekMatches'
 
 function Dashboard() {
   return (
     <main className="Dashboard">
       <Slider />
-      <Standings />
+      <WeekMatches />
       <News />
       <GlobeComponent />
       <FeaturedPlayers />
+      <Standings />
     </main>
   )
 }

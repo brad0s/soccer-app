@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Dashboard from './Dashboard'
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle'
+// register Swiper custom elements
+register()
 
 function App() {
   return (
