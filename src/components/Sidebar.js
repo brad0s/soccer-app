@@ -16,7 +16,12 @@ function Sidebar() {
                 <button
                   className="btn"
                   data-id={tournament.id}
+                  data-color={tournament.primaryColorHex}
                 >
+                  <span
+                    className="bar"
+                    style={{ background: tournament.primaryColorHex }}
+                  ></span>
                   {tournament.name}
                 </button>
               </li>
