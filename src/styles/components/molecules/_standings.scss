@@ -4,7 +4,7 @@
   .team-standings-row,
   .table-row-header {
     display: grid;
-    grid-template-columns: 2rem 3fr repeat(10, 2rem);
+    grid-template-columns: 2rem 3fr repeat(7, 2rem);
     gap: 0.25rem;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -13,9 +13,9 @@
       grid-template-columns: 2rem repeat(11, 1fr);
     }
 
-    &:hover {
-      background: lighten($dark-surface-300, 5%);
-    }
+    // &:hover {
+    //   background: lighten($dark-surface-300, 5%);
+    // }
 
     .cell-item {
       &[data-name='Club'] {
@@ -25,10 +25,30 @@
       &:first-child {
         padding-left: 0.5rem;
       }
+
+      &[data-name='GA'],
+      &[data-name='GD'],
+      &[data-name='GF'] {
+        display: none;
+
+        @include breakpoint('mobile') {
+          display: initial;
+        }
+      }
+    }
+  }
+
+  .team-standings-row {
+    &:hover {
+      background: lighten($dark-surface-300, 5%);
     }
   }
 
   .table-row-header {
+    position: sticky;
+    top: 64px;
+    background: $dark-surface-300;
+
     .cell-item {
       background: none;
       border: none;

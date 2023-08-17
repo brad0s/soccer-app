@@ -1,18 +1,22 @@
 .Sidebar {
-  background: $dark-surface-100;
+  // background: $dark-surface-100;
 
   .sticky {
     position: sticky;
-    top: 1rem;
+    top: calc(1rem + 64px);
+    border: 1px solid rgba(white, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
   }
 
   .list-label {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 
   .tournament-list {
     list-style-type: none;
     margin-left: 1rem;
+    margin-top: 1rem;
 
     .tournament-item {
       &:not(:last-child) {

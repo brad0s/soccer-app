@@ -1,5 +1,26 @@
 .Globe {
-  grid-column: span 6;
+  grid-column: span 12;
+  position: relative;
+
+  @include breakpoint('tablet') {
+    grid-column: span 6;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      $dark-surface-300 90%
+    );
+    pointer-events: none;
+    touch-action: none;
+  }
 
   .scene-container {
     padding-top: 85%;

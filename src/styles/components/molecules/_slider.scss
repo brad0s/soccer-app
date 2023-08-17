@@ -1,5 +1,5 @@
 .Slider {
-  border-radius: 10px;
+  // border-radius: 10px;
   overflow: hidden;
   grid-column: 1/-1;
 
@@ -9,6 +9,7 @@
 
   swiper-slide {
     width: 100% !important;
+    border-radius: 10px;
 
     &.salah {
       background-color: #911712;

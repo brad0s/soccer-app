@@ -1,5 +1,9 @@
 .News {
-  grid-column: span 6;
+  grid-column: span 12;
+
+  @include breakpoint('tablet') {
+    grid-column: span 6;
+  }
 
   .header-image-wrapper {
     display: grid;
@@ -20,6 +24,8 @@
       grid-area: stack;
       position: relative;
       z-index: 1;
+      font-size: 2rem;
+      margin-bottom: 0;
     }
 
     .header-image {
@@ -35,7 +41,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    margin: 0 1rem;
+    // margin: 0 1rem;
 
     .news-item {
       padding-bottom: 0.5rem;
@@ -83,6 +89,7 @@
 
       .headline {
         text-underline-offset: 0.2em;
+        font-weight: 700;
       }
 
       .date {

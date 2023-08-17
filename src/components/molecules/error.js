@@ -1,5 +1,4 @@
 import React from 'react'
-AiFillInfoCircle
 import { AiFillInfoCircle } from 'react-icons/ai'
 
 function Error() {

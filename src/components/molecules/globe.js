@@ -17,11 +17,11 @@ const GlobeComponent = () => {
   useEffect(() => {
     globeEl.current.controls().autoRotate = true
     globeEl.current.controls().enableZoom = false
-    globeEl.current.controls().enableRotate = false
+    globeEl.current.controls().minPolarAngle = 1
+    globeEl.current.controls().maxPolarAngle = 1
     globeEl.current.camera().zoom = 2.0
-    globeEl.current.camera().rotateY(10)
+    globeEl.current.camera().setViewOffset(100, 100, 0, -14, 100, 100)
     globeEl.current.pointOfView({ lat: 32, lng: 40, alt: 2 })
-    // console.log(globeEl.current)
   }, [])
 
   return (

@@ -2,6 +2,9 @@
   padding: 1rem 0;
   background: $dark-surface-100;
   margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
   @include breakpoint('tablet') {
     margin-bottom: 2rem;
@@ -37,13 +40,26 @@
     }
 
     .nav-list {
-      display: flex;
+      display: none;
+      // display: flex;
       align-items: center;
       gap: 1rem;
       list-style-type: none;
 
+      @include breakpoint('tablet') {
+        display: flex;
+      }
+
       &--buttons {
         margin-left: auto;
+      }
+    }
+
+    #hamburger-btn {
+      display: block;
+
+      @include breakpoint('tablet') {
+        display: none;
       }
     }
   }

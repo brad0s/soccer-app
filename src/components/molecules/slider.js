@@ -1,9 +1,6 @@
-import React from 'react'
-// import function to register Swiper custom elements
-// import { register } from 'swiper/element/bundle'
+import React, { useEffect } from 'react'
+import { register } from 'swiper/element/bundle'
 import '../../assets/images/haaland-header-crop.png'
-// register Swiper custom elements
-// register()
 import { playerSlider } from '../../context/cms'
 
 // dynamic image import
@@ -17,7 +14,12 @@ function importAll(r) {
 const images = importAll(
   require.context('../../assets/images', false, /\.(png)$/)
 )
+
 function Slider() {
+  useEffect(() => {
+    register()
+  }, [])
+
   return (
     <div className="Slider">
       <swiper-container

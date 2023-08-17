@@ -3,9 +3,9 @@ import { TOURNAMENTS } from '../context/data'
 
 function Sidebar() {
   return (
-    <aside className="Sidebar card">
-      <div className="sticky">
-        <h2 className="h5 list-label">Leagues</h2>
+    <aside className="Sidebar">
+      <details className="sticky">
+        <summary className="h5 list-label">Leagues</summary>
         <ul className="tournament-list">
           {TOURNAMENTS.map((tournament, idx) => {
             return (
@@ -23,7 +23,7 @@ function Sidebar() {
             )
           })}
         </ul>
-      </div>
+      </details>
     </aside>
   )
 }

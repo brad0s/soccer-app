@@ -31,6 +31,7 @@ function Header() {
               <button className="btn-secondary">Button</button>
             </li>
           </ul>
+          <button id="hamburger-btn">Menu</button>
         </nav>
       </div>
     </header>

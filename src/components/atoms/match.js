@@ -2,8 +2,8 @@ import React from 'react'
 import moment from 'moment'
 
 const Match = ({ match }) => {
-  const time = moment.unix(match.startTimestamp).format('h:mma')
-  const date = moment.unix(match.startTimestamp).format('ddd MMM Do')
+  const time = moment.unix(match.startTimestamp).format('h:mmA')
+  const date = moment.unix(match.startTimestamp).format('ddd MMM D')
   const status =
     match.status.type === 'finished' ? 'Final' : match.status.description
 

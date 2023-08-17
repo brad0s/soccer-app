@@ -29,7 +29,7 @@
   padding-left: $gutter-sm;
   padding-right: $gutter-sm;
 
-  @include breakpoint('tablet') {
+  @include breakpoint('desktop') {
     padding-left: $gutter-lg;
     padding-right: $gutter-lg;
   }

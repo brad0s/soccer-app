@@ -12,7 +12,6 @@ function Standings() {
   }, [])
 
   const handleRowHeaderClick = (e, sortBy) => {
-    console.log(sortBy)
     const attr = e.currentTarget.dataset.key
     let sortedStandings = []
     switch (attr) {

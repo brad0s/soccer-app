@@ -5,10 +5,14 @@
   gap: 1rem;
 
   .headline-card {
-    padding: 1rem;
+    padding: 1rem 0;
     display: grid;
     align-items: center;
-    grid-column: span 2;
+    grid-column: span 12;
+
+    @include breakpoint('mobile') {
+      grid-column: span 2;
+    }
 
     .h5 {
       margin-bottom: 0;
@@ -16,9 +20,13 @@
   }
 
   swiper-container {
-    grid-column: span 10;
+    grid-column: span 12;
     max-width: 100%;
     min-height: 150px;
+
+    @include breakpoint('mobile') {
+      grid-column: span 10;
+    }
   }
 
   .player-card {

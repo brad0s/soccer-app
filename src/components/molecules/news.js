@@ -3,14 +3,17 @@ import moment from 'moment'
 import Error from './error'
 import { getRssFeed } from '../../context/api'
 import headerImage from '../../assets/images/soccer-match.webp'
+import Loading from '../atoms/loading'
 
 function News() {
   const [news, setNews] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const init = async () => {
       const response = await getRssFeed()
       setNews(response)
+      setIsLoading(false)
     }
     init()
   }, [])
@@ -22,7 +25,7 @@ function News() {
           className="header-image"
           src={headerImage}
         />
-        <h2 className="h5 headline">News</h2>
+        <h2 className="h6 headline">News</h2>
       </div>
 
       {news ? (
@@ -57,6 +60,8 @@ function News() {
             )
           })}
         </div>
+      ) : isLoading ? (
+        <Loading />
       ) : (
         <Error />
       )}
