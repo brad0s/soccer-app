@@ -1,0 +1,201 @@
+.Tab-slider {
+  grid-column: span 12;
+  list-style-type: none;
+  display: flex;
+  flex: 1;
+  min-height: 400px;
+  overflow: hidden;
+
+  .tabs-list {
+    list-style-type: none;
+    display: flex;
+    flex: 1;
+    position: relative;
+    flex-flow: column;
+
+    @include breakpoint(tablet) {
+      position: static;
+      flex-flow: row;
+    }
+
+    // @include mobile_width() {
+    //   flex-direction: column;
+    // }
+
+    .tab-item {
+      // $tab-width: 56px;
+      // $tab-width-mobile: 100%;
+      display: flex;
+      // width: $tab-width;
+      // transition: all 0.6s ease-in-out;
+      // position: relative;
+
+      @include breakpoint(tablet) {
+        position: relative;
+      }
+
+      // @include mobile_width() {
+      //   flex-direction: column;
+      //   width: $tab-width-mobile;
+      // }
+
+      .tab-trigger {
+        display: flex;
+        justify-content: center;
+        padding: 21px 6px;
+        box-sizing: border-box;
+        transition: box-shadow 0.3s, transform 0.3s;
+        z-index: 1;
+        background-color: inherit;
+        background: $dark-surface-100;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        // border-color: #89898b;
+        font: 700 24px/1.5 $body-font;
+        color: #fff;
+        cursor: pointer;
+
+        span {
+          text-orientation: mixed;
+          writing-mode: vertical-rl;
+          // transform: rotate(180deg);
+          pointer-events: none;
+        }
+
+        &:hover {
+          z-index: 2;
+          // transform: scale(1.01);
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      .tab-panel {
+        flex: 1 1 0;
+        display: flex;
+        position: absolute;
+        // left: 56px;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+        visibility: hidden;
+        // transition: visibility 0.6s;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background: $dark-surface-300;
+        transition: width 0.6s;
+
+        .container-fluid {
+          width: 100%;
+          display: flex;
+          padding-left: 4.5rem;
+        }
+
+        .wrapper {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .content {
+          .quote {
+            font: 400 1.1rem/1.25 $body-font;
+            margin-bottom: 0.5em;
+
+            @include breakpoint(tablet) {
+              font-size: 1.5rem;
+            }
+
+            &:before {
+              content: open-quote;
+              position: absolute;
+              left: 4rem;
+              top: 0;
+              font-size: 8rem;
+              line-height: 1;
+              font-family: sans-serif;
+
+              @include breakpoint(tablet) {
+                font-size: 20rem;
+              }
+            }
+
+            &:after {
+              content: close-quote;
+              width: 0;
+              height: 0;
+              font-size: 0;
+            }
+          }
+
+          .quoter {
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            &:before {
+              content: '—';
+              margin-right: 0.5rem;
+            }
+          }
+        }
+
+        .container {
+          display: flex;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          align-items: center;
+          justify-content: center;
+          flex: 1;
+
+          .wrap {
+            width: 100%;
+          }
+
+          .std-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            // @include std-content-dark-theme;
+            // max-width: 539px;
+            padding: 70px 0 40px;
+            margin: 0 auto;
+          }
+        }
+      }
+
+      &.open {
+        width: 100%; // init width for page load?
+
+        .tab-trigger {
+          background: $dark-surface-300;
+        }
+
+        .tab-panel {
+          visibility: visible;
+        }
+      }
+
+      &:first-child {
+        &.bounce {
+          // @include animate(bounce-back, 0.5s, ease-out, 1);
+        }
+
+        .tab-panel {
+          &.has-image {
+            .wrap {
+              .std-content {
+                margin-left: 56px;
+
+                // @include mobile_width() {
+                //   margin-left: 0;
+                // }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
