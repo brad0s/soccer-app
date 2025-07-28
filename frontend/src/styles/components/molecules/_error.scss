@@ -1,0 +1,25 @@
+.Error {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .headline {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,66 @@
+.Header {
+  padding: 1rem 0;
+  background: $dark-surface-100;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  @include breakpoint('tablet') {
+    margin-bottom: 2rem;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @include breakpoint('tablet') {
+      gap: 2rem;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      font: 700 1.5rem/1 $body-font;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+      background: linear-gradient(to right, $green, $blue);
+      background-blend-mode: overlay;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+
+      .soccer-icon {
+        color: $green;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+
+    .nav-list {
+      display: none;
+      // display: flex;
+      align-items: center;
+      gap: 1rem;
+      list-style-type: none;
+
+      @include breakpoint('tablet') {
+        display: flex;
+      }
+
+      &--buttons {
+        margin-left: auto;
+      }
+    }
+
+    #hamburger-btn {
+      display: block;
+
+      @include breakpoint('tablet') {
+        display: none;
+      }
+    }
+  }
+}

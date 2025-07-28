@@ -1,0 +1,25 @@
+body {
+  background: $dark-surface-300;
+  color: white;
+  font-family: $body-font;
+}
+
+html {
+  scroll-padding-top: 64px;
+}
+
+a:-webkit-any-link {
+  color: $blue;
+}
+
+.container {
+  @include container;
+}
+
+.container-fluid {
+  @include container-fluid;
+}
+
+.select {
+  @include custom-select;
+}

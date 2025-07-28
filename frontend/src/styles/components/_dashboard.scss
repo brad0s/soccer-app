@@ -1,0 +1,8 @@
+.Dashboard {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+  row-gap: 2rem;
+  grid-auto-rows: min-content;
+  margin-bottom: 2rem;
+}

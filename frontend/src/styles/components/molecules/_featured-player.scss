@@ -1,0 +1,94 @@
+.Featured-players {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+
+  .headline-card {
+    padding: 1rem 0;
+    display: grid;
+    align-items: center;
+    grid-column: span 12;
+
+    @include breakpoint('mobile') {
+      grid-column: span 2;
+    }
+
+    .h5 {
+      margin-bottom: 0;
+    }
+  }
+
+  swiper-container {
+    grid-column: span 12;
+    max-width: 100%;
+    min-height: 150px;
+
+    @include breakpoint('mobile') {
+      grid-column: span 10;
+    }
+
+    swiper-slide {
+      width: 225px;
+    }
+  }
+
+  .player-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 1rem;
+    color: $dark-surface-100;
+    color: white;
+    // background: $dark-surface-300 !important;
+    // background: linear-gradient(
+    //   45deg,
+    //   $dark-surface-300 75%,
+    //   #313139
+    // ) !important;
+    background-image: linear-gradient(
+      45deg,
+      hsl(240deg 12% 8%) 15%,
+      hsl(240deg 11% 11%) 74%,
+      hsl(240deg 10% 14%) 90%,
+      hsl(240deg 9% 18%) 97%,
+      hsl(240deg 8% 21%) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    .rating {
+      font: 500 0.75rem/1.3 $body-font;
+      margin-bottom: 0.5em;
+
+      span {
+        font-weight: 600;
+      }
+    }
+
+    .club {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.015em;
+    }
+
+    // &:nth-child(n + 1) {
+    //   background: $yellow;
+    // }
+  }
+  // .player-card {
+  //   &:nth-child(2n + 1) {
+  //     background: $green;
+  //   }
+  // }
+  // .player-card {
+  //   &:nth-child(3n + 1) {
+  //     background: $purple;
+  //   }
+  // }
+  // .player-card {
+  //   &:nth-child(4n + 1) {
+  //     background: $blue;
+  //   }
+  // }
+}

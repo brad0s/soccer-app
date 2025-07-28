@@ -1,0 +1,62 @@
+.Sidebar {
+  // background: $dark-surface-100;
+
+  .sticky {
+    position: sticky;
+    top: calc(1rem + 64px);
+    border: 1px solid rgba(white, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .list-label {
+    margin-bottom: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .tournament-list {
+    list-style-type: none;
+    margin-left: 1rem;
+    margin-top: 1rem;
+
+    .tournament-item {
+      &:not(:last-child) {
+        .btn {
+          margin-bottom: 0.5rem;
+        }
+      }
+      .btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        padding: 0.5rem 0;
+        padding-left: 0.5rem;
+        width: 100%;
+        position: relative;
+        text-align: left;
+        border-radius: 5px;
+
+        .bar {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          display: block;
+          width: 6px;
+          // height: inherit;
+          // border: 0.25px solid white;
+          border-radius: 3px;
+          transform: translate(-100%, 0);
+          // background: red;
+        }
+
+        &:hover {
+          background: $dark-surface-100;
+        }
+      }
+    }
+  }
+}
