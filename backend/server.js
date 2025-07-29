@@ -18,7 +18,7 @@ const handleBlobRequest = async (req, res, key) => {
   }
 }
 
-app.get('/', req, res => {
+app.get('/', (req, res) => {
   res.status(200).json({ message: 'Welcome to the EPL API' });
 })
 
