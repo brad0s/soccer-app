@@ -1,48 +1,33 @@
 import "dotenv/config.js";
 import express from 'express';
 import cors from 'cors';
-import { getDB } from './db.js';
+import { getBlob } from './db.js';
 
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(cors());
 
-app.get('/v1/seasons', async (req, res) => {
-  const db = await getDB();
-  const row = await db.get(`SELECT json FROM api_blobs WHERE key = ?`, ['seasons']);
-  res.json(JSON.parse(row.json));
-});
+const handleBlobRequest = async (req, res, key) => {
+  try {
+    const data = await getBlob(key);
+    res.json(data);
+  } catch (error) {
+    console.error(`Error retrieving blob for key ${key}:`, error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
 
-app.get('/v1/standings', async (req, res) => {
-  const db = await getDB();
-  const row = await db.get(`SELECT json FROM api_blobs WHERE key = ?`, ['standings']);
-  res.json(JSON.parse(row.json));
-});
+app.get("/v1/seasons", (req, res) => handleBlobRequest(req, res, "seasons"));
+app.get("/v1/standings", (req, res) => handleBlobRequest(req, res, "standings"));
+app.get("/v1/top-players", (req, res) => handleBlobRequest(req, res, "topPlayers"));
+app.get("/v1/rounds", (req, res) => handleBlobRequest(req, res, "rounds"));
+app.get("/v1/fixtures", (req, res) => handleBlobRequest(req, res, "fixtures"));
+app.get("/v1/featured-players", (req, res) => handleBlobRequest(req, res, "featuredPlayers"));
 
-app.get('/v1/top-players', async (req, res) => {
-  const db = await getDB();
-  const row = await db.get(`SELECT json FROM api_blobs WHERE key = ?`, ['topPlayers']);
-  res.json(JSON.parse(row.json));
-});
-
-app.get('/v1/rounds', async (req, res) => {
-  const db = await getDB();
-  const row = await db.get(`SELECT json FROM api_blobs WHERE key = ?`, ['rounds']);
-  res.json(JSON.parse(row.json));
-});
-
-app.get('/v1/fixtures', async (req, res) => {
-  const db = await getDB();
-  const row = await db.get(`SELECT json FROM api_blobs WHERE key = ?`, ['fixtures']);
-  res.json(JSON.parse(row.json));
-});
-
-app.get('/v1/featured-players', async (req, res) => {
-  const db = await getDB();
-  const row = await db.get(`SELECT json FROM api_blobs WHERE key = ?`, ['featuredPlayers']);
-  res.json(JSON.parse(row.json));
-});
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not Found' });
+})
 
 app.listen(PORT, () => {
   console.log(`🖥️. Server listening on port ${PORT}...`);
