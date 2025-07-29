@@ -18,6 +18,10 @@ const handleBlobRequest = async (req, res, key) => {
   }
 }
 
+app.get('/', req, res => {
+  res.status(200).json({ message: 'Welcome to the EPL API' });
+})
+
 app.get("/v1/seasons", (req, res) => handleBlobRequest(req, res, "seasons"));
 app.get("/v1/standings", (req, res) => handleBlobRequest(req, res, "standings"));
 app.get("/v1/top-players", (req, res) => handleBlobRequest(req, res, "topPlayers"));
