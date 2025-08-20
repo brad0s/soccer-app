@@ -116,26 +116,26 @@ const syncFeaturedPlayers = async () => {
 /**************************
  * sync data to db
  */
-// async function syncData() {
-//   console.log('🔄 Syncing Started...');
-//   await createBlobTable(); // ensure table exists
-//   await syncSeasons();
-//   await syncStandings();
-//   await new Promise(resolve => setTimeout(resolve, 1000)) // sleep to avoid rate limiting
+async function syncData() {
+  console.log('🔄 Syncing Started...');
+  await createBlobTable(); // ensure table exists
+  await syncSeasons();
+  await syncStandings();
+  await new Promise(resolve => setTimeout(resolve, 1000)) // sleep to avoid rate limiting
 
-//   await syncTopPlayers();
-//   await syncRounds();
-//   await new Promise(resolve => setTimeout(resolve, 1000))
+  await syncTopPlayers();
+  await syncRounds();
+  await new Promise(resolve => setTimeout(resolve, 1000))
 
-//   await syncFixtures();
-//   await syncFeaturedPlayers();
-//   console.log('✅ Sync complete!');
-// }
+  await syncFixtures();
+  await syncFeaturedPlayers();
+  console.log('✅ Sync complete!');
+}
 
-// syncData().catch(err => {
-//   console.error('Sync failed:', err);
-//   process.exit(1);
-// });
+syncData().catch(err => {
+  console.error('Sync failed:', err);
+  process.exit(1);
+});
 
 export const syncSoccerData = async () => {
   console.log('🔄 Syncing Started...');

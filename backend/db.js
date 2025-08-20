@@ -1,10 +1,11 @@
-import "dotenv/config.js";
+import "dotenv/config";
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 
 const blobTable = 'api_blobs';
 
 export const getDB = async () => {
+  console.log("DB_PATH =", process.env.DB_PATH);
   return open({
     filename: process.env.DB_PATH,
     driver: sqlite3.Database
