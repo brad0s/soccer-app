@@ -33,8 +33,10 @@ export const STATS_MAP = {
   goalsPrevented: 'Goals Prevented',
   interceptions: 'Interceptions',
   keyPasses: 'Key Passes',
+  kilometersCovered: 'Kilometers Covered',
   leastConceded: 'Least Conceded',
   mostConceded: 'Most Conceded',
+  numberOfSprints: 'Number of Sprints',
   penaltyGoals: 'Penalty Goals',
   penaltyWon: 'Penalty Won',
   possessionLost: 'Possession Lost',
@@ -45,6 +47,7 @@ export const STATS_MAP = {
   shotsOnTarget: 'Shots on Target',
   successfulDribbles: 'Successful Dribbles',
   tackles: 'Tackles',
+  topSpeed: 'Top Speed',
   totalShots: 'Total Shots',
   yellowCards: 'Yellow Cards',
 }

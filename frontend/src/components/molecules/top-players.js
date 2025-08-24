@@ -68,7 +68,7 @@ function StatBox({ keyName, players }) {
   const topPlayer = topTenPlayers.shift()
   return (
     <div className="Stat-box">
-      <div className="h6">{STATS_MAP[keyName]}</div>
+      <div data-key={keyName} className="h6">{STATS_MAP[keyName]}</div>
       <div className="card">
         <TopPlayer
           player={topPlayer}
@@ -91,7 +91,7 @@ function StatBox({ keyName, players }) {
 }
 
 const TopPlayer = ({ player, keyName }) => {
-  const decimalStats = ['expectedAssists', 'expectedGoals', 'goalsPrevented', 'rating', 'scoringFrequency']
+  const decimalStats = ['expectedAssists', 'expectedGoals', 'goalsPrevented', 'rating', 'scoringFrequency', 'kilometersCovered', 'topSpeed']
   const shouldRound = decimalStats.includes(keyName)
   const name = player.player.name
   const [firstName, lastName] = name.split(' ')
@@ -122,7 +122,7 @@ const TopPlayer = ({ player, keyName }) => {
 }
 
 const Player = ({ player, keyName }) => {
-  const decimalStats = ['expectedAssists', 'expectedGoals', 'goalsPrevented', 'rating', 'scoringFrequency']
+  const decimalStats = ['expectedAssists', 'expectedGoals', 'goalsPrevented', 'rating', 'scoringFrequency', 'kilometersCovered', 'topSpeed']
   const shouldRound = decimalStats.includes(keyName)
   const name = player.player.name
   const team = player.team.name
