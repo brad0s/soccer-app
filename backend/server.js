@@ -2,12 +2,12 @@ import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
 import { getBlob } from './db.js';
-import { syncSoccerData } from "./sync.js";
+import { syncData } from './syncCore.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// app.use(cors());
+app.use(cors());
 
 const handleBlobRequest = async (req, res, key) => {
   try {
@@ -30,15 +30,15 @@ app.get("/v1/rounds", (req, res) => handleBlobRequest(req, res, "rounds"));
 app.get("/v1/fixtures", (req, res) => handleBlobRequest(req, res, "fixtures"));
 app.get("/v1/featured-players", (req, res) => handleBlobRequest(req, res, "featuredPlayers"));
 
-app.post("/v1/sync", async (req, res) => {
+app.post('/v1/sync', async (req, res) => {
   try {
-    await syncSoccerData();
+    await syncData();
     res.status(200).json({ status: 'success', message: 'Sync complete.' });
   } catch (err) {
     console.error('Sync failed:', err);
     res.status(500).json({ status: 'error', message: 'Sync failed.', error: err.message });
   }
-})
+});
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Not Found' });

@@ -4,7 +4,7 @@ import { SoccerContext } from '../../context/context'
 
 function FeaturedPlayers() {
   const { featuredPlayers } = useContext(SoccerContext);
-  const swiperRef = useRef(null)
+  // const swiperRef = useRef(null)
 
   useEffect(() => {
     register()
@@ -35,11 +35,11 @@ function FeaturedPlayers() {
           Players
         </h2>
       </div>
-      <swiper-container ref={swiperRef}>
+      <div class="players-list">
         {featuredPlayers &&
           featuredPlayers.map((player, idx) => {
             return (
-              <swiper-slide
+              <div
                 key={idx}
                 class="player-card"
               >
@@ -48,10 +48,10 @@ function FeaturedPlayers() {
                   Rating: <span>{player.statistic}</span>
                 </p>
                 {/* <p className="club">{player.team.name}</p> */}
-              </swiper-slide>
+              </div>
             )
           })}
-      </swiper-container>
+      </div>
     </div>
   )
 }

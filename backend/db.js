@@ -5,7 +5,6 @@ import { open } from 'sqlite';
 const blobTable = 'api_blobs';
 
 export const getDB = async () => {
-  console.log("DB_PATH =", process.env.DB_PATH);
   return open({
     filename: process.env.DB_PATH,
     driver: sqlite3.Database
