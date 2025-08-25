@@ -1,62 +1,38 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
-import { register } from 'swiper/element/bundle'
-import { LEAGUE_OVERALL_TOP_PLAYERS } from '../../context/data'
-import { STATS_MAP, splitArray } from '../../utils/helper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { STATS_HEADLINE_MAP, STATS_DECIMAL_CATEGORIES, STATS_STAT_KEY_MAP } from '../../utils/helper'
 import { SoccerContext } from '../../context/context';
 
 const TopPlayers = () => {
   const { topPlayers } = useContext(SoccerContext);
-  const swiperRef = useRef(null)
-
-  useEffect(() => {
-    register()
-  }, [])
 
   if (!topPlayers) {
     return <div className="Top-players">Loading...</div>
   }
 
-  useEffect(() => {
-    register()
-    const params = {
-      slidesPerView: 2.3,
-      spaceBetween: 16,
-      breakpoints: {
-        576: {
-          slidesPerView: 2.3,
-        },
-        768: {
-          slidesPerView: 3.3,
-        },
-      },
-    }
-    Object.assign(swiperRef.current, params)
-    swiperRef.current.initialize()
-  }, [])
-
-  // const keys = Object.keys(topPlayers).map((key) => key)
   return (
     <div
       id="top-players"
       className="Top-players"
     >
       <h2 className="h5 headline">Top Players</h2>
-      <swiper-container
-        ref={swiperRef}
-        slides-per-view="auto"
-        space-between={16}
-        mousewheel={true}
-        scrollbar="true"
+      <Swiper
+        modules={[Pagination]}
+        slidesPerView="auto"
+        spaceBetween={16}
       >
         {Object.keys(topPlayers).map((key) => (
-          <swiper-slide key={key}>
+          <SwiperSlide key={key}>
             <StatBox
               keyName={key}
               players={topPlayers[key]}
             />
-          </swiper-slide>
+          </SwiperSlide>
         ))}
-      </swiper-container>
+      </Swiper>
     </div>
   )
 }
@@ -68,7 +44,7 @@ function StatBox({ keyName, players }) {
   const topPlayer = topTenPlayers.shift()
   return (
     <div className="Stat-box">
-      <div className="h6">{STATS_MAP[keyName]}</div>
+      <div data-key={keyName} className="h6">{STATS_HEADLINE_MAP[keyName]}</div>
       <div className="card">
         <TopPlayer
           player={topPlayer}
@@ -91,11 +67,11 @@ function StatBox({ keyName, players }) {
 }
 
 const TopPlayer = ({ player, keyName }) => {
-  const decimalStats = ['expectedAssists', 'expectedGoals', 'goalsPrevented', 'rating', 'scoringFrequency']
-  const shouldRound = decimalStats.includes(keyName)
+  const shouldRound = STATS_DECIMAL_CATEGORIES.includes(keyName)
   const name = player.player.name
   const [firstName, lastName] = name.split(' ')
-  const stat = player.statistics[keyName]
+  // const stat = player.statistics[keyName]
+  let stat = player.statistics[STATS_STAT_KEY_MAP[keyName]];
   const team = player.team.name
   const primaryTeamColor = player.team.teamColors.primary
   const backgroundColor = primaryTeamColor
@@ -122,11 +98,11 @@ const TopPlayer = ({ player, keyName }) => {
 }
 
 const Player = ({ player, keyName }) => {
-  const decimalStats = ['expectedAssists', 'expectedGoals', 'goalsPrevented', 'rating', 'scoringFrequency']
-  const shouldRound = decimalStats.includes(keyName)
+  const shouldRound = STATS_DECIMAL_CATEGORIES.includes(keyName)
   const name = player.player.name
   const team = player.team.name
-  const stat = player.statistics[keyName]
+  // const stat = player.statistics[keyName]
+  let stat = player.statistics[STATS_STAT_KEY_MAP[keyName]];
   return (
     <div className="Player-item">
       <div className="row">
