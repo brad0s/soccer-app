@@ -35,19 +35,19 @@
     }
   }
 
-  swiper-container {
-    grid-column: span 12;
-    max-width: 100%;
-    min-height: 150px;
+  // swiper-container {
+  //   grid-column: span 12;
+  //   max-width: 100%;
+  //   min-height: 150px;
 
-    @include breakpoint('mobile') {
-      grid-column: span 10;
-    }
+  //   @include breakpoint('mobile') {
+  //     grid-column: span 10;
+  //   }
 
-    swiper-slide {
-      width: 225px;
-    }
-  }
+  //   swiper-slide {
+  //     width: 225px;
+  //   }
+  // }
 
   .player-card {
     display: flex;

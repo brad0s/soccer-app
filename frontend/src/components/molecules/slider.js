@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
-import { register } from 'swiper/element/bundle'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/pagination';
 import '../../assets/images/haaland-header-crop.png'
 import { playerSlider } from '../../context/cms'
 
@@ -16,43 +20,40 @@ const images = importAll(
 )
 
 function Slider() {
-  useEffect(() => {
-    register()
-  }, [])
-
   return (
     <div className="Slider">
-      <swiper-container
-        pagination="true"
-        pagination-clickable="true"
-        autoPlay="true"
-        autoPlay-delay={7000}
-        loop="true"
-        mousewheel={true}
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
+        autoPlay={{ delay: 7000 }}
+        loop={true}
+        slides-per-view={1}
+        space-between={0}
       >
         {playerSlider.map((slide, idx) => (
-          <swiper-slide
+          <SwiperSlide
             key={idx}
-            class={slide.background}
           >
-            <div className="wrapper">
-              <div className="content">
-                <h3
-                  className="headline"
-                  dangerouslySetInnerHTML={{ __html: slide.headline }}
-                ></h3>
-              </div>
-              <div className="image-container">
-                <img
-                  className="player-img"
-                  src={images[slide.image]}
-                  alt=""
-                />
+            <div className={'swiper-slide ' + slide.background}>
+              <div className="wrapper">
+                <div className="content">
+                  <h3
+                    className="headline"
+                    dangerouslySetInnerHTML={{ __html: slide.headline }}
+                  ></h3>
+                </div>
+                <div className="image-container">
+                  <img
+                    className="player-img"
+                    src={images[slide.image]}
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
-          </swiper-slide>
+          </SwiperSlide>
         ))}
-      </swiper-container>
+      </Swiper>
     </div>
   )
 }
