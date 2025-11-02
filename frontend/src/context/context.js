@@ -28,13 +28,18 @@ export const SoccerContextProvider = ({ children }) => {
       const _currentSeasonId = getCurrentSeason()
       setCurrentSeasonId(_currentSeasonId)
       const _topPlayers = await getTopPlayers();
-      setTopPlayers(_topPlayers.topPlayers);
+      setTopPlayers(_topPlayers?.topPlayers ?? []);
       const _standings = await getStandings();
-      setStandings(_standings?.standings[0]?.rows);
+      // setStandings(_standings?.standings[0]?.rows);
+      const standingsRows =
+        Array.isArray(_standings?.standings) && _standings.standings.length > 0
+          ? _standings.standings[0].rows
+          : [];
+      setStandings(standingsRows);
       const _fixtures = await getFixtures();
-      setFixtures(_fixtures.events);
+      setFixtures(_fixtures?.events ?? []);
       const _featuredPlayers = await getFeaturedPlayers();
-      setFeaturedPlayers(_featuredPlayers);
+      setFeaturedPlayers(_featuredPlayers ?? []);
     }
     init()
   }, [])
