@@ -64,7 +64,7 @@ function Standings() {
       <h2 className="h5">Standings</h2>
       <div className="grid-table">
         <TeamStandingRowHeader handleRowHeaderClick={handleRowHeaderClick} />
-        {standings?.length > 0 ? (
+        {standings && Array.isArray(standings) ? (
           standings.map((row, idx) => {
             return (
               <TeamStandingRow

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const footballInstance = axios.create({
-  baseURL: process.env.SOCCER_APP_URL,
+  // baseURL: process.env.SOCCER_APP_URL,
+  baseURL: process.env.SOCCER_APP_URL_DEV,
   headers: {
     // 'Content-Type': 'application/json',
   }

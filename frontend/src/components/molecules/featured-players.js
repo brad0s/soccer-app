@@ -20,7 +20,7 @@ function FeaturedPlayers() {
         </h2>
       </div>
       <div className="players-list">
-        {featuredPlayers &&
+        {Array.isArray(featuredPlayers) && featuredPlayers &&
           featuredPlayers.map((player, idx) => {
             return (
               <div
