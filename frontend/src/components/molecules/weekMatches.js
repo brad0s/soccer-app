@@ -71,7 +71,7 @@ function WeekMatches() {
         </div>
       </div>
       <div className="matches-list">
-        {matches &&
+        {matches && Array.isArray(matches) &&
           matches.map((match, idx) => {
             return (
               <Match

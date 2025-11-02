@@ -24,14 +24,24 @@ const TopPlayers = () => {
         slidesPerView="auto"
         spaceBetween={16}
       >
-        {Object.keys(topPlayers).map((key) => (
+        {topPlayers && Object.keys(topPlayers).length > 0 && (
+          Object.keys(topPlayers).map((key) => (
+            <SwiperSlide key={key}>
+              <StatBox
+                keyName={key}
+                players={topPlayers[key]}
+              />
+            </SwiperSlide>
+          ))
+        )}
+        {/* {Object.keys(topPlayers).map((key) => (
           <SwiperSlide key={key}>
             <StatBox
               keyName={key}
               players={topPlayers[key]}
             />
           </SwiperSlide>
-        ))}
+        ))} */}
       </Swiper>
     </div>
   )
