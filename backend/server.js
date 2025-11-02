@@ -7,7 +7,27 @@ import { syncData } from './syncCore.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+// app.use(cors());
+const allowedOrigins = [
+  'http://localhost:3001',
+  process.env.APP_DOMAIN_URL_DEV,
+  process.env.APP_DOMAIN_URL_1,
+  process.env.APP_DOMAIN_URL_2
+];
+
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      cb(null, true);
+    } else {
+      console.warn('❌ Blocked by CORS:', origin);
+      cb(new Error('Not allowed by CORS'));
+    }
+  },
+}));
+// app.options('*', cors());
+
+app.use(express.json());
 
 const handleBlobRequest = async (req, res, key) => {
   try {

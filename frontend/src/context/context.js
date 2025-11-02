@@ -30,7 +30,6 @@ export const SoccerContextProvider = ({ children }) => {
       const _topPlayers = await getTopPlayers();
       setTopPlayers(_topPlayers.topPlayers);
       const _standings = await getStandings();
-      console.log(_standings);
       setStandings(_standings?.standings[0]?.rows);
       const _fixtures = await getFixtures();
       setFixtures(_fixtures.events);
