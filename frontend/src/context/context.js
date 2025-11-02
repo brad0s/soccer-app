@@ -28,7 +28,7 @@ export const SoccerContextProvider = ({ children }) => {
       const _currentSeasonId = getCurrentSeason()
       setCurrentSeasonId(_currentSeasonId)
       const _topPlayers = await getTopPlayers();
-      setTopPlayers(_topPlayers?.topPlayers ?? []);
+      setTopPlayers(_topPlayers?.topPlayers ?? {});
       const _standings = await getStandings();
       // setStandings(_standings?.standings[0]?.rows);
       const standingsRows =
