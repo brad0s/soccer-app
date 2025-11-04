@@ -26,5 +26,8 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new webpack.DefinePlugin({
+      'process.env.SOCCER_APP_URL': JSON.stringify(process.env.SOCCER_APP_URL),
+    }),
   ],
 })
