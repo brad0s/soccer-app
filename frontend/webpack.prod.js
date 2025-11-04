@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path')
 const common = require('./webpack.common')
 const { merge } = require('webpack-merge')
@@ -26,5 +27,8 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new webpack.DefinePlugin({
+      'process.env.SOCCER_APP_URL': JSON.stringify(process.env.SOCCER_APP_URL),
+    }),
   ],
 })

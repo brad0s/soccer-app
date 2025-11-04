@@ -23,23 +23,27 @@ export const SoccerContextProvider = ({ children }) => {
 
   useEffect(() => {
     const init = async () => {
-      const _tournamentId = getTournamentId()
-      setTournamentId(_tournamentId)
-      const _currentSeasonId = getCurrentSeason()
-      setCurrentSeasonId(_currentSeasonId)
-      const _topPlayers = await getTopPlayers();
-      setTopPlayers(_topPlayers?.topPlayers ?? {});
-      const _standings = await getStandings();
-      // setStandings(_standings?.standings[0]?.rows);
-      const standingsRows =
-        Array.isArray(_standings?.standings) && _standings.standings.length > 0
-          ? _standings.standings[0].rows
-          : [];
-      setStandings(standingsRows);
-      const _fixtures = await getFixtures();
-      setFixtures(_fixtures?.events ?? []);
-      const _featuredPlayers = await getFeaturedPlayers();
-      setFeaturedPlayers(_featuredPlayers ?? []);
+      try {
+        const _tournamentId = getTournamentId()
+        setTournamentId(_tournamentId)
+        const _currentSeasonId = getCurrentSeason()
+        setCurrentSeasonId(_currentSeasonId)
+        const _topPlayers = await getTopPlayers();
+        setTopPlayers(_topPlayers?.topPlayers ?? {});
+        const _standings = await getStandings();
+        // setStandings(_standings?.standings[0]?.rows);
+        const standingsRows =
+          Array.isArray(_standings?.standings) && _standings.standings.length > 0
+            ? _standings.standings[0].rows
+            : [];
+        setStandings(standingsRows);
+        const _fixtures = await getFixtures();
+        setFixtures(_fixtures?.events ?? []);
+        const _featuredPlayers = await getFeaturedPlayers();
+        setFeaturedPlayers(_featuredPlayers ?? []);
+      } catch (error) {
+        console.error('Error initializing SoccerContext:', error);
+      }
     }
     init()
   }, [])
