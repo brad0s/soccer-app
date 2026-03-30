@@ -1,0 +1,22 @@
+name: Sync Database
+
+on:
+  schedule:
+    - cron: '0 18 * * *' # 10:00 AM PST daily
+    - cron: '0 1 * * *' # 5:00 PM PST daily
+  workflow_dispatch: # manual trigger from GitHub UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger sync on Render
+        run: |
+          curl -X POST https://soccer-app-nx0d.onrender.com/v1/sync \
+            -H "Authorization: Bearer ${{ secrets.SYNC_SECRET }}" \
+            -H "Content-Type: application/json" \
+            --max-time 60 \
+            --retry 2 \
+            --fail \
+            --silent \
+            --show-error
